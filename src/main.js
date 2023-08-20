@@ -1,4 +1,4 @@
-import ghibli from './data/ghibli/ghibli.mjs';
+import ghibli from './data/ghibli/ghibli.js';
 import {
   getFilms,
   getPeopleNameAndImg,
@@ -7,7 +7,7 @@ import {
   orderScore,
   orderYear,
   getDirectorProducerAverages,
-} from './data.mjs';
+} from './data.js';
 
 let currentArray = [];
 
