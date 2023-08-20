@@ -139,6 +139,7 @@ function createFilmCards(index) {
 
   const filmCardContentList = document.createElement("section");
   filmCardContentList.className = "filmCardContent";
+  filmCardContentList.id = "filmCardContentList";
 
   const createList = (label, items, idExpect) => {
     const labelElement = document.createElement("label");
@@ -153,6 +154,13 @@ function createFilmCards(index) {
 
     const listElement = document.createElement("ul");
     listElement.className = "filmListExtra";
+    
+    if (items.length === 0) {
+      const listItem = document.createElement("li");
+      listItem.className = "elementFilmExtra";
+      listItem.textContent = "No hay elementos";
+      listElement.appendChild(listItem);
+    }
 
     items.forEach((item) => {
       const listItem = document.createElement("li");
@@ -169,28 +177,93 @@ function createFilmCards(index) {
     filmCardContentList.appendChild(listElement);
   };
 
+  
   createList("PERSONAJES", film.people,'peopleList');
   createList("LOCACIONES", film.locations, 'locationsList');
   createList("VEHICULOS", film.vehicles, 'vehiclesList');
 
+  const buttonsContainer = document.createElement("section");
+  buttonsContainer.className = "containerBaby";
+  buttonsContainer.id = "buttonsContainer";
+  filmCardContentList.appendChild(buttonsContainer);
 
+  const listButtons = document.createElement("ul");
+  listButtons.id = "buttonsContainerUl";
+  buttonsContainer.appendChild(listButtons);
+
+
+  const anteriorButtonli = document.createElement("li");
+  const siguienteButtonli = document.createElement("li");
+  listButtons.appendChild(anteriorButtonli);
+  listButtons.appendChild(siguienteButtonli);
+
+  const anteriorButton = document.createElement("button");
+  anteriorButton.className = "buttonFilmExtra";
+  anteriorButton.textContent = "ANTERIOR";
+  anteriorButton.id = "anteriorButton";
+  anteriorButtonli.appendChild(anteriorButton);
+
+  const siguienteButton = document.createElement("button");
+  siguienteButton.className = "buttonFilmExtra";
+  siguienteButton.textContent = "SIGUIENTE";
+  siguienteButton.id = "siguienteButton";
+  siguienteButtonli.appendChild(siguienteButton);
+
+  const regresarButton = document.createElement("button");
+  regresarButton.className = "buttonFilmExtra";
+  regresarButton.textContent = "REGRESAR";
+  regresarButton.id = "regresarButton";
+  buttonsContainer.appendChild(regresarButton);
 
   filmCard.appendChild(filmCardContentPoster);
   filmCard.appendChild(filmCardContentInfo);
   filmCard.appendChild(filmCardContentList);
+  
+  //CLICK EN BOTON SIGUIENTE
+
+  siguienteButton.addEventListener("click", () => {
+    const currentIndex = currentArray.indexOf(film);
+    showNextFilmCard(currentIndex);
+  });
+
+  //CLICK EN BOTON ANTERIOR
+
+  anteriorButton.addEventListener("click", () => {
+    const currentIndex = currentArray.indexOf(film);
+    showPreviousFilmCard(currentIndex);
+  });
 
   return filmCard;
 
 }
 
-  
-  
-
+//MOSTRAR TARJETA DE PELICULA
 function showFilmCard(index) {
-  const filmCard = createFilmCards(index); // Crear la tarjeta de película completa
-  principalContainer.innerHTML = ""; // Limpiar el contenedor principal
-  principalContainer.appendChild(filmCard); // Mostrar la tarjeta de película completa
+  const filmCard = createFilmCards(index);
+  principalContainer.innerHTML = ""; 
+  principalContainer.appendChild(filmCard); 
 }
+
+//MOSTRAR TARJETA SIGUIENTE
+function showNextFilmCard(currentFilmIndex) {
+  if (currentFilmIndex < currentArray.length - 1) {
+    currentFilmIndex++;
+  } else {
+    currentFilmIndex = 0;
+  }
+  showFilmCard(currentFilmIndex);
+}
+
+//MOSTRAR TARJETA ANTERIOR
+function showPreviousFilmCard(currentFilmIndex) {
+  if (currentFilmIndex > 0) {
+    currentFilmIndex--;
+  } else {
+    currentFilmIndex = currentArray.length - 1;
+  }
+  showFilmCard(currentFilmIndex);
+}
+
 
 
 //AGREGAR TARJETAS AL CONTENEDOR

@@ -22,6 +22,7 @@ const getFilms = (obj) => {
   return array;
 };
 
+
 function getDirectorProducerAverages(data) {
   const directorProducerMap = {};
 
