@@ -397,7 +397,8 @@ html {
   max-height: 95%;
   flex-wrap: nowrap;
   flex-direction: row;
-  box-sizing: border-box;
+  box-sizing: border-box; 
+  overflow-y: scroll;
 }
 
 .filmCardContent {
@@ -412,6 +413,7 @@ html {
   padding: 10px;
   flex-grow: 1;
   padding: 20px 5px;
+  height: auto;
 }
 
 .filmCardImage { 
@@ -421,8 +423,8 @@ html {
   overflow: hidden;
   max-height: 100%;
   border-radius: 5px;
-  box-shadow:  6px 6px 9px #7d7d7d,
-             -6px -6px 9px #7d7d7d80;
+  box-shadow:  9px 9px 9px #7d7d7d,
+             -9px -9px 9px #7d7d7d80;
 }
 
 .filmCardTitle {
@@ -519,13 +521,13 @@ html {
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   width: 100%;
   background-color: rgba(255, 255, 255, 0.232);
-  box-shadow: 2px 2px 2px rgba(251, 89, 89, 1), -1px 4px 4px rgb(115, 188, 43),
-    1px 2px 4px rgba(255, 247, 3, 0.964), -2px -2px 2px rgba(32, 164, 245, 1);
+  box-shadow:  5px 5px 5px #7d7d7d,
+  -5px -5px 5px #7d7d7d2d;
 }
 
 .buttonFilmExtra:hover {
   transform: scale(1.05) translateY(-1px);
-  transition: all 1.5s;
+  transition: all 2.5s;
 }
 
 .buttonFilmExtra:active {

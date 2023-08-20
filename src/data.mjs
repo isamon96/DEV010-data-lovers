@@ -1,4 +1,3 @@
-//import ghibli from './data/ghibli/ghibli.mjs';
 
 const getFilms = (obj) => {
   const array = obj.films.map((film) => {
@@ -68,7 +67,6 @@ function getDirectorProducerAverages(data) {
   return averages;
 }
 
-
 const getPeopleNameAndImg = (obj) => {
   const array = obj.films.map((film) =>
     film.people.map((person) => {
@@ -102,6 +100,8 @@ const getLocationsNameAndImg = (obj) => {
   return array.reduce((flatArray, subArray) => flatArray.concat(subArray), []);
 };
 
+
+
 const getVehiclesNameAndImg = (obj) => {
   const array = obj.films.map((film) =>
     film.vehicles.map((vehicle) => {
@@ -118,37 +118,23 @@ const getVehiclesNameAndImg = (obj) => {
 };
 
 
-const orderAlphabetically = (array) => {
-  const newArray = array.sort((a, b) => {
-    if (a.name > b.name) {
-      return 1;
-    } else if (a.name < b.name) {
-      return -1;
-    } else {
-      return 0;
-    }});
+const orderScore = (array, property) => {
+  const newArray = array.sort((a, b) => b[property] - a[property]);
   return newArray;
 };
 
-const orderScore = (array) => {
-  const newArray = array.sort((a, b) => b.score - a.score);
-  return newArray;
-};
+
 
 const orderYear = (array) => {
   const newArray = array.sort((a, b) => b.year - a.year);
   return newArray;
 };
-
-
-
    
 export {
   getFilms,
   getPeopleNameAndImg,
   getLocationsNameAndImg,
-  getVehiclesNameAndImg,
-  orderAlphabetically, 
+  getVehiclesNameAndImg, 
   orderScore,
   orderYear,
   getDirectorProducerAverages,

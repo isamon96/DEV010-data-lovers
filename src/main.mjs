@@ -82,12 +82,19 @@ function createCard(item) {
     year.className = "cardSubtitle";
     year.textContent = `Año: ${item.year}`;
     card.appendChild(year);
-  } 
+  } else if (currentArray === directorsAndProducersArray) {
+    const score = document.createElement("p");
+    score.className = "cardSubtitle";
+    score.textContent = `Puntaje promedio: ${item.averageRating}`;
+    card.appendChild(score);
+  }
 
   //CLICK EN TARJETA
-  card.addEventListener("click", () => {
-    const clickedIndex = currentArray.indexOf(item);
-    showFilmCard(clickedIndex);});
+  if (currentArray === filmsArray) {
+    card.addEventListener("click", () => {
+      const clickedIndex = currentArray.indexOf(item);
+      showFilmCard(clickedIndex);});
+  } 
   return card;
 }
 
@@ -215,6 +222,10 @@ function createFilmCards(index) {
   regresarButton.id = "regresarButton";
   buttonsContainer.appendChild(regresarButton);
 
+  regresarButton.addEventListener("click", () => {
+    updateCurrentSection('ANIMACIONES');
+    showCards(filmsArray);});
+
   filmCard.appendChild(filmCardContentPoster);
   filmCard.appendChild(filmCardContentInfo);
   filmCard.appendChild(filmCardContentList);
@@ -285,12 +296,16 @@ function showCards(array) {
   principalContainer.appendChild(filterContainer);
   filterContainer.style.display = "inline-flex";
   currentArray = array;
-  if (currentArray !== filmsArray) {
-    scoreLabel.style.display = "none";
-    yearLabel.style.display = "none";
-  } else {
+  if (currentArray === filmsArray) {
     scoreLabel.style.display = "flex";
     yearLabel.style.display = "flex";
+  } else if (currentArray === directorsAndProducersArray) {
+    scoreLabel.style.display = "flex";
+    yearLabel.style.display = "none";
+  }
+  else {
+    scoreLabel.style.display = "none";
+    yearLabel.style.display = "none";
   }
   addCardsToContainer(array);
   countCards(array);
@@ -325,7 +340,11 @@ function orderAlphabetically() {
 
 //ORDENAR POR PUNTAJE
 function orderByScore() {
-  currentArray = orderScore(filmsArray);
+  if (currentArray === filmsArray) {
+    currentArray = orderScore(filmsArray, 'score');
+  } else if (currentArray === directorsAndProducersArray){
+    currentArray = orderScore(directorsAndProducersArray, 'averageRating');
+  }
   principalContainer.innerHTML = "";
   principalContainer.appendChild(filterContainer);
   showCards(currentArray);
