@@ -83,7 +83,7 @@ Los prototipos de alta y baja fidelidad son elementos esenciales en el proceso d
 
 ![INICIO](./src/images/prototipo3.jpeg)
 ![CARDS](./src/images/prototipo2.jpeg)
-![FILM CARD](./src/images/prototipo1.jpeg)
+![FILM CARD](./src/images/prototipo1.jpeg) 
 
 **ALTA FIDELIDAD**
 
