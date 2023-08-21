@@ -362,8 +362,6 @@ function inverseOrder() {
   showCards(currentArray);
 }
 
-
-
 //EVENTOS
 logoLi.addEventListener("click", showPricipalPage);
 animacionesLi.addEventListener("click", () => {
