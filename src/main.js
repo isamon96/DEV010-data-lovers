@@ -98,8 +98,42 @@ function createCard(item) {
   return card;
 }
 
-//CREAR TARJETAS DE PELICULAS
+//AGREGAR TARJETAS AL CONTENEDOR
+function addCardsToContainer(array) {
+  array.forEach((item) => {
+    const card = createCard(item);
+    principalContainer.appendChild(card);
+  });
+}
 
+//CONTAR TARJETAS
+function countCards(array) {
+  cantidadNumber.textContent = array.length;
+}
+
+//MOSTRAR TARJETAS
+function showCards(array) {
+  principalContainer.innerHTML = "";
+  principalContainer.appendChild(filterContainer);
+  filterContainer.style.display = "inline-flex";
+  currentArray = array;
+  if (currentArray === filmsArray) {
+    scoreLabel.style.display = "flex";
+    yearLabel.style.display = "flex";
+  } else if (currentArray === directorsAndProducersArray) {
+    scoreLabel.style.display = "flex";
+    yearLabel.style.display = "none";
+  }
+  else {
+    scoreLabel.style.display = "none";
+    yearLabel.style.display = "none";
+  }
+  addCardsToContainer(array);
+  countCards(array);
+}
+
+
+//CREAR TARJETAS DE PELICULAS
 
 function createFilmCards(index) {
 
@@ -274,44 +308,6 @@ function showPreviousFilmCard(currentFilmIndex) {
   }
   showFilmCard(currentFilmIndex);
 }
-
-
-
-//AGREGAR TARJETAS AL CONTENEDOR
-function addCardsToContainer(array) {
-  array.forEach((item) => {
-    const card = createCard(item);
-    principalContainer.appendChild(card);
-  });
-}
-
-//CONTAR TARJETAS
-function countCards(array) {
-  cantidadNumber.textContent = array.length;
-}
-
-//MOSTRAR TARJETAS
-function showCards(array) {
-  principalContainer.innerHTML = "";
-  principalContainer.appendChild(filterContainer);
-  filterContainer.style.display = "inline-flex";
-  currentArray = array;
-  if (currentArray === filmsArray) {
-    scoreLabel.style.display = "flex";
-    yearLabel.style.display = "flex";
-  } else if (currentArray === directorsAndProducersArray) {
-    scoreLabel.style.display = "flex";
-    yearLabel.style.display = "none";
-  }
-  else {
-    scoreLabel.style.display = "none";
-    yearLabel.style.display = "none";
-  }
-  addCardsToContainer(array);
-  countCards(array);
-}
-
-
 
 
 //ORDENAR ALFABETICAMENTE

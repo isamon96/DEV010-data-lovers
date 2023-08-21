@@ -1,6 +1,4 @@
- /**{
- border: #FB5959 solid 1px;
-}*/
+
 
 html {
     height: 100%;
@@ -140,7 +138,7 @@ html {
     border-radius: 0.9375rem;
     padding: 1px;
     box-sizing: border-box;
-    margin: 5px; /* Agregar un pequeño espacio entre los contenedores */
+    margin: 5px;
     max-width: 100%;
     flex-grow: 1;
     flex-shrink: 2;
@@ -154,9 +152,9 @@ html {
   }
   
   .containerBaby img {
-    width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
-    max-width: 100%; /* Para asegurarse de que la imagen no se salga del contenedor */
-    height: auto; /* Ajustar la altura automáticamente para mantener la proporción */
+    width: 100%;
+    max-width: 100%; 
+    height: auto; 
   }
   
   #titleContainer {
@@ -403,7 +401,6 @@ html {
 
 .filmCardContent {
   display: flex;
-  /*border: #000 solid 1px;*/
   width: 95%;
   justify-content: center;
   align-items: center;
@@ -478,7 +475,6 @@ html {
   height:0px;
   overflow: hidden;
   text-align: center;
-  /*transition: height .75s ease-in-out;*/ 
   columns: 3;
     -webkit-columns: 3;
     -moz-columns: 3;
@@ -553,30 +549,29 @@ html {
   }
 
   @media screen and (max-width: 768px) {
-    /* Aplicar estilos para pantallas con un ancho máximo de 768px (ajusta según tus necesidades) */
     .filmCard {
-      flex-direction: row; /* Cambiar la dirección del contenedor principal para pantallas pequeñas */
+      flex-direction: row; 
       flex-wrap: wrap;
       height: 95%;
       overflow-y: scroll;
     }
   
     .filmCardContent {
-      width: 95%; /* Ajustar el ancho de los contenedores en versión móvil */
+      width: 95%;
       height: 100%;
     }
   
     .filmCardTitle {
-      font-size: 6vw; /* Ajustar el tamaño de fuente para títulos en pantallas aún más pequeñas */
+      font-size: 6vw; 
     }
   
     .filmCardSubtitle {
-      font-size: 4vw; /* Ajustar el tamaño de fuente para subtítulos en pantallas aún más pequeñas */
-      text-align: center; /* Centrar el texto en pantallas pequeñas */
+      font-size: 4vw;
+      text-align: center; 
     }
   
     #prin {
-      flex-wrap: wrap; /* Cambiar el contenedor principal para que los elementos cambien de línea */
+      flex-wrap: wrap; 
     }
   
     .filmMiddleContainer {
