@@ -1,4 +1,4 @@
-import ghibli from './data/ghibli/ghibli.js';
+import ghibli from "./data/ghibli/ghibli.js";
 import {
   getFilms,
   getPeopleNameAndImg,
@@ -7,7 +7,7 @@ import {
   orderScore,
   orderYear,
   getDirectorProducerAverages,
-} from './data.js';
+} from "./data.js";
 
 let currentArray = [];
 
@@ -51,26 +51,24 @@ function updateCurrentSection(section) {
   currentSection.textContent = section;
 }
 
-
-//CREAR TARJETAS 
+//CREAR TARJETAS
 function createCard(item) {
   const card = document.createElement("section");
   card.className = "card";
-  
+
   const title = document.createElement("p");
   title.className = "cardTitle";
   title.textContent = item.name || item.title;
 
   const content = document.createElement("section");
   content.className = "cardContent";
-  
+
   const img = document.createElement("img");
   img.src = item.img || item.poster;
-  
+
   content.appendChild(img);
   card.appendChild(title);
   card.appendChild(content);
-
 
   if (currentArray === filmsArray) {
     const score = document.createElement("p");
@@ -93,8 +91,9 @@ function createCard(item) {
   if (currentArray === filmsArray) {
     card.addEventListener("click", () => {
       const clickedIndex = currentArray.indexOf(item);
-      showFilmCard(clickedIndex);});
-  } 
+      showFilmCard(clickedIndex);
+    });
+  }
   return card;
 }
 
@@ -123,8 +122,7 @@ function showCards(array) {
   } else if (currentArray === directorsAndProducersArray) {
     scoreLabel.style.display = "flex";
     yearLabel.style.display = "none";
-  }
-  else {
+  } else {
     scoreLabel.style.display = "none";
     yearLabel.style.display = "none";
   }
@@ -132,11 +130,9 @@ function showCards(array) {
   countCards(array);
 }
 
-
 //CREAR TARJETAS DE PELICULAS
 
 function createFilmCards(index) {
-
   const film = filmsArray[index];
 
   const filmCard = document.createElement("section");
@@ -177,7 +173,6 @@ function createFilmCards(index) {
   filmCardContentInfo.appendChild(filmCardScore);
   filmCardContentInfo.appendChild(filmCardYear);
 
-
   const filmCardContentList = document.createElement("section");
   filmCardContentList.className = "filmCardContent";
   filmCardContentList.id = "filmCardContentList";
@@ -195,7 +190,7 @@ function createFilmCards(index) {
 
     const listElement = document.createElement("ul");
     listElement.className = "filmListExtra";
-    
+
     if (items.length === 0) {
       const listItem = document.createElement("li");
       listItem.className = "elementFilmExtra";
@@ -218,10 +213,9 @@ function createFilmCards(index) {
     filmCardContentList.appendChild(listElement);
   };
 
-  
-  createList("PERSONAJES", film.people,'peopleList');
-  createList("LOCACIONES", film.locations, 'locationsList');
-  createList("VEHICULOS", film.vehicles, 'vehiclesList');
+  createList("PERSONAJES", film.people, "peopleList");
+  createList("LOCACIONES", film.locations, "locationsList");
+  createList("VEHICULOS", film.vehicles, "vehiclesList");
 
   const buttonsContainer = document.createElement("section");
   buttonsContainer.className = "containerBaby";
@@ -231,7 +225,6 @@ function createFilmCards(index) {
   const listButtons = document.createElement("ul");
   listButtons.id = "buttonsContainerUl";
   buttonsContainer.appendChild(listButtons);
-
 
   const anteriorButtonli = document.createElement("li");
   const siguienteButtonli = document.createElement("li");
@@ -257,13 +250,14 @@ function createFilmCards(index) {
   buttonsContainer.appendChild(regresarButton);
 
   regresarButton.addEventListener("click", () => {
-    updateCurrentSection('ANIMACIONES');
-    showCards(filmsArray);});
+    updateCurrentSection("ANIMACIONES");
+    showCards(filmsArray);
+  });
 
   filmCard.appendChild(filmCardContentPoster);
   filmCard.appendChild(filmCardContentInfo);
   filmCard.appendChild(filmCardContentList);
-  
+
   //CLICK EN BOTON SIGUIENTE
 
   siguienteButton.addEventListener("click", () => {
@@ -279,14 +273,13 @@ function createFilmCards(index) {
   });
 
   return filmCard;
-
 }
 
 //MOSTRAR TARJETA DE PELICULA
 function showFilmCard(index) {
   const filmCard = createFilmCards(index);
-  principalContainer.innerHTML = ""; 
-  principalContainer.appendChild(filmCard); 
+  principalContainer.innerHTML = "";
+  principalContainer.appendChild(filmCard);
 }
 
 //MOSTRAR TARJETA SIGUIENTE
@@ -309,7 +302,6 @@ function showPreviousFilmCard(currentFilmIndex) {
   showFilmCard(currentFilmIndex);
 }
 
-
 //ORDENAR ALFABETICAMENTE
 function orderAlphabetically() {
   if (currentArray === filmsArray) {
@@ -322,7 +314,7 @@ function orderAlphabetically() {
     });
   } else {
     currentArray.sort((a, b) => {
-      if (a.name> b.name) {
+      if (a.name > b.name) {
         return 1;
       } else {
         return -1;
@@ -337,9 +329,9 @@ function orderAlphabetically() {
 //ORDENAR POR PUNTAJE
 function orderByScore() {
   if (currentArray === filmsArray) {
-    currentArray = orderScore(filmsArray, 'score');
-  } else if (currentArray === directorsAndProducersArray){
-    currentArray = orderScore(directorsAndProducersArray, 'averageRating');
+    currentArray = orderScore(filmsArray, "score");
+  } else if (currentArray === directorsAndProducersArray) {
+    currentArray = orderScore(directorsAndProducersArray, "averageRating");
   }
   principalContainer.innerHTML = "";
   principalContainer.appendChild(filterContainer);
@@ -365,23 +357,26 @@ function inverseOrder() {
 //EVENTOS
 logoLi.addEventListener("click", showPricipalPage);
 animacionesLi.addEventListener("click", () => {
-  updateCurrentSection('ANIMACIONES');
-  showCards(filmsArray);});
+  updateCurrentSection("ANIMACIONES");
+  showCards(filmsArray);
+});
 personajesLi.addEventListener("click", () => {
-  updateCurrentSection('PERSONAJES');
-  showCards(peopleArray);});
+  updateCurrentSection("PERSONAJES");
+  showCards(peopleArray);
+});
 directoresLi.addEventListener("click", () => {
-  updateCurrentSection('DIRECTORES Y PRODUCTORES');
-  showCards(directorsAndProducersArray);});
+  updateCurrentSection("DIRECTORES Y PRODUCTORES");
+  showCards(directorsAndProducersArray);
+});
 locacionesLi.addEventListener("click", () => {
-  updateCurrentSection('LOCACIONES');
-  showCards(locationsArray);});
+  updateCurrentSection("LOCACIONES");
+  showCards(locationsArray);
+});
 vehiculosLi.addEventListener("click", () => {
-  updateCurrentSection('VEHÍCULOS');
-  showCards(vehiclesArray);});
+  updateCurrentSection("VEHÍCULOS");
+  showCards(vehiclesArray);
+});
 alphabeticalOrder.addEventListener("click", orderAlphabetically);
 invertirOrden.addEventListener("click", inverseOrder);
 scoreOrder.addEventListener("click", orderByScore);
 yearOrder.addEventListener("click", orderByYear);
-
-

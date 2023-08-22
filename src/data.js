@@ -1,5 +1,6 @@
-
 const getFilms = (obj) => {
+  //getFilms recibe un objeto con la propiedad films y devuelve un array de objetos con las porpiedades que queremos mostrar.
+  //.map toma cada elemento del array y lo transforma en un objeto con las propiedades que queremos mostrar.
   const array = obj.films.map((film) => {
     const peopleNames = film.people.map((person) => person.name);
     const locationsNames = film.locations.map((location) => location.name);
@@ -21,46 +22,44 @@ const getFilms = (obj) => {
   return array;
 };
 
-
-function getDirectorProducerAverages(data) {
+function getDirectorProducerAverages(obj) {
   const directorProducerMap = {};
 
-  data.films.forEach((film) => {
+  obj.films.forEach((film) => {
     const director = film.director;
     const producer = film.producer;
     const rating = parseInt(film.rt_score);
 
-    if (director in directorProducerMap) {
-      directorProducerMap[director].films.push(film);
-      directorProducerMap[director].totalRating += rating;
-    } else {
+    if (!(director in directorProducerMap)) {
+      //Utilizar in para comprobar si una propiedad existe en un objeto.
       directorProducerMap[director] = {
         name: director,
         films: [film],
         totalRating: rating,
       };
+    } else {
+      directorProducerMap[director].films.push(film);
+      directorProducerMap[director].totalRating += rating;
     }
 
-    if (producer in directorProducerMap) {
-      directorProducerMap[producer].films.push(film);
-      directorProducerMap[producer].totalRating += rating;
-    } else {
+    if (!(producer in directorProducerMap)) {
       directorProducerMap[producer] = {
         name: producer,
         films: [film],
         totalRating: rating,
       };
+    } else {
+      directorProducerMap[producer].films.push(film);
+      directorProducerMap[producer].totalRating += rating;
     }
   });
 
   const averages = [];
 
   for (const key in directorProducerMap) {
-    const { name, films, totalRating } = directorProducerMap[key];
-    const averageRating = parseInt((totalRating / films.length)); 
-
+    const { name, films, totalRating } = directorProducerMap[key]; //Destructurar un objeto.
+    const averageRating = parseInt(totalRating / films.length);
     const theirFilms = films.map((film) => film.title);
-
     averages.push({ name, averageRating, theirFilms });
   }
 
@@ -81,9 +80,11 @@ const getPeopleNameAndImg = (obj) => {
       };
     })
   );
-  return array.reduce((flatArray, subArray) => flatArray.concat(subArray), []);
+  return array.reduce((flatArray, subArray) => flatArray.concat(subArray), []); //Concatenar arrays.
+  //flatArray es el array vacío que se va a ir llenando con los elementos de subArray.
+  //subArray es el array que se va a ir concatenando a flatArray.
+  //reduce itera y retorna un único valor.
 };
-
 
 const getLocationsNameAndImg = (obj) => {
   const array = obj.films.map((film) =>
@@ -100,8 +101,6 @@ const getLocationsNameAndImg = (obj) => {
   return array.reduce((flatArray, subArray) => flatArray.concat(subArray), []);
 };
 
-
-
 const getVehiclesNameAndImg = (obj) => {
   const array = obj.films.map((film) =>
     film.vehicles.map((vehicle) => {
@@ -117,24 +116,22 @@ const getVehiclesNameAndImg = (obj) => {
   return array.reduce((flatArray, subArray) => flatArray.concat(subArray), []);
 };
 
-
 const orderScore = (array, property) => {
-  const newArray = array.sort((a, b) => b[property] - a[property]);
+  //Ordena de mayor a menor
+  const newArray = array.sort((a, b) => b[property] - a[property]); //Si el valor es positivo, b va antes que a. Si es negativo, a va antes que b. Si es 0, no se mueve.
   return newArray;
 };
-
-
 
 const orderYear = (array) => {
   const newArray = array.sort((a, b) => b.year - a.year);
   return newArray;
 };
-   
+
 export {
   getFilms,
   getPeopleNameAndImg,
   getLocationsNameAndImg,
-  getVehiclesNameAndImg, 
+  getVehiclesNameAndImg,
   orderScore,
   orderYear,
   getDirectorProducerAverages,

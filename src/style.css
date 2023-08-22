@@ -1,388 +1,382 @@
-
-
 html {
-    height: 100%;
-  }
-  
-  :root {
-    /*Colores*/
-    --negro: #000;
-    --salmon: #fb5959;
-    --verde: #98bf5e;
-    --azul: #20a4f5;
-    --blanco: #ffffff;
-  
-    /*FUENTES*/
-    --titulos: 'Chelsea Market', cursive;
-    --principal: "Inconsolata", monospace;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    fill: rgba(255, 255, 255, 0.312);
-    stroke-width: 5px;
-    stroke: var(--negro);
-    backdrop-filter: blur(35px);
-    margin: 7px;
-    flex-wrap: nowrap;
-    border-radius: 0.9375rem;
-    border: 2px solid var(--negro);
-    padding: 1px;
-    box-sizing: border-box;
-  }
-  
-  .logo {
-    height: 50px;
-    padding: 0;
-    border: 0;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    background-image: url("./images/background5.png");
-    background-size: cover;
-    height: 100%;
-    box-sizing: border-box;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    font-family: var(--principal);
-  }
-  
-  /* Header*/
-  
-  nav {
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
-  
-  ul {
-    display: flex;
-    margin: 0;
-    padding: 0 0 1% 0;
-    list-style: none;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-  }
-  #logoLi {
-    padding: 0 1%;
-  }
-  
-  li {
-    font-weight: bolder;
-    padding: 1% 2%;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    border: var(--negro) solid 2px;
-    box-shadow: 5px 5px 3px rgba(251, 89, 89, 1), -3px 8px 7px rgb(115, 188, 43),
-      3px 4px 7px rgba(255, 247, 3, 0.964), -5px -5px 3px rgba(32, 164, 245, 1);
-    margin: 0.8% 2%;
-    transition: all 1.5s;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.2);
-    font-size: large;
-  }
-  
-  li:hover {
-    transform: scale(1.2) translateY(-1px);
-    box-shadow: none;
-    transition: all 1.5s;
-  }
-  
-  li:active {
-    transform: scale(1.1);
-   
-    box-shadow: 3px 3px 15px 3px rgba(251, 89, 89, 1),
-      -3px 3px 10px rgb(115, 188, 43), 1px 3px 2px rgba(255, 247, 3, 0.964),
-      -3px -3px 4px 3px rgba(32, 164, 245, 1);
-    transition: all 0.2s;
-  }
-  
-  /*Main*/
-  
-  main {
-    padding: 5px;
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-    height: 100%;
-  }
-  
-  #prin {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    height: 100%;
-    flex-wrap: wrap;
-    backdrop-filter: blur(60px);
-    overflow-y: scroll;
-  }
-  
-  .containerBaby {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: space-around;
-    flex-wrap: wrap;
-    border-radius: 0.9375rem;
-    padding: 1px;
-    box-sizing: border-box;
-    margin: 5px;
-    max-width: 100%;
-    flex-grow: 1;
-    flex-shrink: 2;
-  }
-  
-  #galery {
-    flex-direction: row;
-    width: 50%;
-    height: 95%;
-    justify-content: center;
-  }
-  
-  .containerBaby img {
-    width: 100%;
-    max-width: 100%; 
-    height: auto; 
-  }
-  
-  #titleContainer {
-    flex: 1 1 30%;
-  }
-  
-  .gallery-item {
-    flex: 1 1 10%;
-    border-radius: 10px;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-    box-shadow: 1px 5px 5px #000000;
-    opacity: 0.9;
-    border: #000 2px solid;
-  }
-  
-  .gallery-item:nth-of-type(1) {
-    background: url("https://gifdb.com/images/high/ghibli-no-face-foreman-loves-food-rv2hdrdsiaeuv3vx.webp")
-      no-repeat 60% / cover;
-  }
-  .gallery-item:nth-of-type(2) {
-    background: url("https://gifdb.com/images/high/ghibli-neighbor-totoro-goodbye-ybr2rcobo56epeu4.webp")
-      no-repeat 60% / cover;
-  }
-  .gallery-item:nth-of-type(3) {
-    background: url("https://img.buzzfeed.com/buzzfeed-static/static/2017-08/22/10/asset/buzzfeed-prod-fastlane-01/anigif_sub-buzz-30367-1503413993-12.gif")
-      no-repeat 55% / cover;
-  }
-  .gallery-item:nth-of-type(4) {
-    background: url("https://gifdb.com/images/high/haku-studio-ghibli-anime-9s2f516c7zll5gx0.gif")
-      no-repeat 50% / cover;
-  }
-  
-  .gallery-item:hover {
-    box-shadow: 1px 5px 5px #000000;
-    transform: translateY(-3px);
-    opacity: 1;
-    flex: 1 1 60%;
-  }
-  
-  /*ORDENAR Y OTRAS COSAS*/
-  #filterContainer {
-    align-items: center;
-    display: none;
-    flex-direction: row;
-    width: 100%;
-    font-size: large;
-  }
-  
-  #titleFilter {
-    font-family: var(--principal);
-    font-weight: 700;
-    color: #fff;
-    border: none;
-    background: none;
-  }
+  height: 100%;
+}
 
-  .filterSection {
-    flex: 1 1 auto;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
-    padding: 0.5rem;
-    margin: 2px;
-    border: var(--negro) solid 2px;
-    background-color: #20a3f5;
-    height: 100%;
-  }
-  
-  .filterSection .contentFilterSection {
-    flex: 1 1 auto;
-    text-align: center;
-    background-color: #fff;
-    border: #000000 2px solid;
-    border-radius: 10px;
-    margin: 0 2px;
-    padding: 6px;
-  }
-  
-  .filterSection .contentFilterSection .name {
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    border-radius: 1%;
-    color: rgb(0, 0, 0);
-    transition: all 0.15s ease-in-out;
-    width: 100%;
-  }
-  
-  .filterSection .contentFilterSection input {
-    display: none;
-    border: #000000 8px solid;
-  }
-  
-  .filterSection .contentFilterSection input:checked + .name {
-    font-weight: bolder;
-    background-color: #fff;
-  }
-  
-  .contentFilterSection {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #cantidadContainer {
-    background-color: #98bf5e;
-    font-weight: bold;
-  }
+:root {
+  /*Colores*/
+  --negro: #000;
+  --salmon: #fb5959;
+  --verde: #98bf5e;
+  --azul: #20a4f5;
+  --blanco: #ffffff;
 
-  #invertirOrden {
-    height: 100%;
-    font-family: var(--principal), sans-serif;
-    align-items: center;
-    font-size: large;
-  
-  }
+  /*FUENTES*/
+  --titulos: "Chelsea Market", cursive;
+  --principal: "Inconsolata", monospace;
+}
 
-  #invertirOrden:hover {
-    background-color: #e0eecd;
-    color: #000000;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  fill: rgba(255, 255, 255, 0.312);
+  stroke-width: 5px;
+  stroke: var(--negro);
+  backdrop-filter: blur(35px);
+  margin: 7px;
+  flex-wrap: nowrap;
+  border-radius: 0.9375rem;
+  border: 2px solid var(--negro);
+  padding: 1px;
+  box-sizing: border-box;
+}
 
-  #invertirOrden:active {
-    background-color: var(--verde);
-    font-weight: bolder;
-    border: #000000 2px solid;
-    color: #ffffff;
-  }
+.logo {
+  height: 50px;
+  padding: 0;
+  border: 0;
+}
 
-  #estamosContainer {
-    background-color: var(--salmon);
-    font-weight: bold;
-    width: 100%;
-    justify-content: center;
-    color: #fff;
-    font-family: var(--titulos), sans-serif;
-    margin: 1% 0.5%;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url("./images/background5.png");
+  background-size: cover;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  font-family: var(--principal);
+}
 
-  
-  /*Cards*/
-  .card {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    border: #000 2px solid;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    display: flex;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
-  }
-  
-  .card img {
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    width: 120%;
-    height: 120%;
-    object-fit: cover;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .card:hover {
-    transform: rotate(-0.1deg) scale(1.05);
-    box-shadow: 5px 5px 5px rgba(251, 89, 89, 1), -3px 8px 10px rgb(115, 188, 43),
-      3px 4px 10px rgba(255, 247, 3, 0.964), -5px -5px 5px rgba(32, 164, 245, 1);
-  }
-  
-  .cardContent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .card:hover .cardContent {
-    transform: translate(-50%, -50%) rotate(0deg);
-    opacity: 1;
-  }
-  
-  .cardTitle {
-    margin: 0;
-    font-size: 150%;
-    color:rgb(0, 0, 0) ;
-    font-weight: normal;
-    text-align: center;
-    font-family: 'Chelsea Market', cursive;
-    padding: 0 4%;
-  }
+/* Header*/
 
-  .cardSubtitle {
-    margin: 0;
-    display: flex;
-    font-size: 80%;
-    color: #000;
-    font-weight: normal;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Chelsea Market', cursive;
-    padding: 0 4%;
-    background-color: #ffffff4c;
-    border: 1px solid #00000025;
-    height: 100%;
-    text-align: center;
-  
-  }	
+nav {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
 
-  /*FilmCard*/
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0 0 1% 0;
+  list-style: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+#logoLi {
+  padding: 0 1%;
+}
 
-  
+li {
+  font-weight: bolder;
+  padding: 1% 2%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: var(--negro) solid 2px;
+  box-shadow: 5px 5px 3px rgba(251, 89, 89, 1), -3px 8px 7px rgb(115, 188, 43),
+    3px 4px 7px rgba(255, 247, 3, 0.964), -5px -5px 3px rgba(32, 164, 245, 1);
+  margin: 0.8% 2%;
+  transition: all 1.5s;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: large;
+}
+
+li:hover {
+  transform: scale(1.2) translateY(-1px);
+  box-shadow: none;
+  transition: all 1.5s;
+}
+
+li:active {
+  transform: scale(1.1);
+
+  box-shadow: 3px 3px 15px 3px rgba(251, 89, 89, 1),
+    -3px 3px 10px rgb(115, 188, 43), 1px 3px 2px rgba(255, 247, 3, 0.964),
+    -3px -3px 4px 3px rgba(32, 164, 245, 1);
+  transition: all 0.2s;
+}
+
+/*Main*/
+
+main {
+  padding: 5px;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  height: 100%;
+}
+
+#prin {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 100%;
+  flex-wrap: wrap;
+  backdrop-filter: blur(60px);
+  overflow-y: scroll;
+}
+
+.containerBaby {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-around;
+  flex-wrap: wrap;
+  border-radius: 0.9375rem;
+  padding: 1px;
+  box-sizing: border-box;
+  margin: 5px;
+  max-width: 100%;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+#galery {
+  flex-direction: row;
+  width: 50%;
+  height: 95%;
+  justify-content: center;
+}
+
+.containerBaby img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+#titleContainer {
+  flex: 1 1 30%;
+}
+
+.gallery-item {
+  flex: 1 1 10%;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 5px 5px #000000;
+  opacity: 0.9;
+  border: #000 2px solid;
+}
+
+.gallery-item:nth-of-type(1) {
+  background: url("https://gifdb.com/images/high/ghibli-no-face-foreman-loves-food-rv2hdrdsiaeuv3vx.webp")
+    no-repeat 60% / cover;
+}
+.gallery-item:nth-of-type(2) {
+  background: url("https://gifdb.com/images/high/ghibli-neighbor-totoro-goodbye-ybr2rcobo56epeu4.webp")
+    no-repeat 60% / cover;
+}
+.gallery-item:nth-of-type(3) {
+  background: url("https://img.buzzfeed.com/buzzfeed-static/static/2017-08/22/10/asset/buzzfeed-prod-fastlane-01/anigif_sub-buzz-30367-1503413993-12.gif")
+    no-repeat 55% / cover;
+}
+.gallery-item:nth-of-type(4) {
+  background: url("https://gifdb.com/images/high/haku-studio-ghibli-anime-9s2f516c7zll5gx0.gif")
+    no-repeat 50% / cover;
+}
+
+.gallery-item:hover {
+  box-shadow: 1px 5px 5px #000000;
+  transform: translateY(-3px);
+  opacity: 1;
+  flex: 1 1 60%;
+}
+
+/*ORDENAR Y OTRAS COSAS*/
+#filterContainer {
+  align-items: center;
+  display: none;
+  flex-direction: row;
+  width: 100%;
+  font-size: large;
+}
+
+#titleFilter {
+  font-family: var(--principal);
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  background: none;
+}
+
+.filterSection {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.5rem;
+  margin: 2px;
+  border: var(--negro) solid 2px;
+  background-color: #20a3f5;
+  height: 100%;
+}
+
+.filterSection .contentFilterSection {
+  flex: 1 1 auto;
+  text-align: center;
+  background-color: #fff;
+  border: #000000 2px solid;
+  border-radius: 10px;
+  margin: 0 2px;
+  padding: 6px;
+}
+
+.filterSection .contentFilterSection .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1%;
+  color: rgb(0, 0, 0);
+  transition: all 0.15s ease-in-out;
+  width: 100%;
+}
+
+.filterSection .contentFilterSection input {
+  display: none;
+  border: #000000 8px solid;
+}
+
+.filterSection .contentFilterSection input:checked + .name {
+  font-weight: bolder;
+  background-color: #fff;
+}
+
+.contentFilterSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cantidadContainer {
+  background-color: #98bf5e;
+  font-weight: bold;
+}
+
+#invertirOrden {
+  height: 100%;
+  font-family: var(--principal), sans-serif;
+  align-items: center;
+  font-size: large;
+}
+
+#invertirOrden:hover {
+  background-color: #e0eecd;
+  color: #000000;
+}
+
+#invertirOrden:active {
+  background-color: var(--verde);
+  font-weight: bolder;
+  border: #000000 2px solid;
+  color: #ffffff;
+}
+
+#estamosContainer {
+  background-color: var(--salmon);
+  font-weight: bold;
+  width: 100%;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--titulos), sans-serif;
+  margin: 1% 0.5%;
+}
+
+/*Cards*/
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border: #000 2px solid;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+}
+
+.card:hover {
+  transform: rotate(-0.1deg) scale(1.05);
+  box-shadow: 5px 5px 5px rgba(251, 89, 89, 1), -3px 8px 10px rgb(115, 188, 43),
+    3px 4px 10px rgba(255, 247, 3, 0.964), -5px -5px 5px rgba(32, 164, 245, 1);
+}
+
+.cardContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card:hover .cardContent {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 150%;
+  color: rgb(0, 0, 0);
+  font-weight: normal;
+  text-align: center;
+  font-family: "Chelsea Market", cursive;
+  padding: 0 4%;
+}
+
+.cardSubtitle {
+  margin: 0;
+  display: flex;
+  font-size: 80%;
+  color: #000;
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+  font-family: "Chelsea Market", cursive;
+  padding: 0 4%;
+  background-color: #ffffff4c;
+  border: 1px solid #00000025;
+  height: 100%;
+  text-align: center;
+}
+
+/*FilmCard*/
+
 .filmCard {
   display: flex;
   background-color: #ffffff75;
@@ -395,7 +389,7 @@ html {
   max-height: 95%;
   flex-wrap: nowrap;
   flex-direction: row;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   overflow-y: scroll;
 }
 
@@ -413,15 +407,14 @@ html {
   height: auto;
 }
 
-.filmCardImage { 
+.filmCardImage {
   display: flex;
   max-width: 95%;
   height: 450px;
   overflow: hidden;
   max-height: 100%;
   border-radius: 5px;
-  box-shadow:  9px 9px 9px #7d7d7d,
-             -9px -9px 9px #7d7d7d80;
+  box-shadow: 9px 9px 9px #7d7d7d, -9px -9px 9px #7d7d7d80;
 }
 
 .filmCardTitle {
@@ -435,7 +428,6 @@ html {
   font-size: 1.3vw;
   text-align: justify;
 }
-
 
 /*LISTAS DESPEGABLES*/
 
@@ -454,11 +446,11 @@ html {
 }
 
 .filmExtraSection {
-  padding : 15px;
-  background : #2d2f31; 
-  color : white;
-  font-size : 1.2em;
-  cursor : pointer;
+  padding: 15px;
+  background: #2d2f31;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -470,21 +462,32 @@ html {
 }
 
 .filmListExtra {
-  clear:both;
-  width:100%;
-  height:0px;
+  clear: both;
+  width: 100%;
+  height: 0px;
   overflow: hidden;
   text-align: center;
   columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3;
 }
 
-.filmListExtra li {padding : 10px; border: none; box-shadow: none;}
+.filmListExtra li {
+  padding: 10px;
+  border: none;
+  box-shadow: none;
+}
 
-.inputFilm {position: absolute; opacity: 0; height: auto;}    
+.inputFilm {
+  position: absolute;
+  opacity: 0;
+  height: auto;
+}
 
-.inputFilm:checked + .filmListExtra {height: auto; margin: 10px 0;} 
+.inputFilm:checked + .filmListExtra {
+  height: auto;
+  margin: 10px 0;
+}
 
 #buttonsContainer {
   display: inline-flex;
@@ -499,7 +502,7 @@ html {
   box-shadow: none;
   border: none;
   background: none;
-}	
+}
 
 #buttonsContainerUl {
   display: inline-flex;
@@ -517,8 +520,7 @@ html {
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   width: 100%;
   background-color: rgba(255, 255, 255, 0.232);
-  box-shadow:  5px 5px 5px #7d7d7d,
-  -5px -5px 5px #7d7d7d2d;
+  box-shadow: 5px 5px 5px #7d7d7d, -5px -5px 5px #7d7d7d2d;
 }
 
 .buttonFilmExtra:hover {
@@ -528,56 +530,53 @@ html {
 
 .buttonFilmExtra:active {
   transform: scale(1.025);
-  box-shadow: 3px 3px 2px rgba(251, 89, 89, 1),
-    -1px 3px 10px rgb(115, 188, 43), 1px 3px 2px rgba(255, 247, 3, 0.964),
+  box-shadow: 3px 3px 2px rgba(251, 89, 89, 1), -1px 3px 10px rgb(115, 188, 43),
+    1px 3px 2px rgba(255, 247, 3, 0.964),
     -3px -1px 2px 3px rgba(32, 164, 245, 1);
   transition: all 0.2s;
 }
 
 #regresarButton {
-
   flex-basis: 100%;
-}	
-  
-  /*Footer*/
-  
-  #footerContainer {
-    margin: 2px;
-    align-items: center;
-    justify-content: center;
+}
+
+/*Footer*/
+
+#footerContainer {
+  margin: 2px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .filmCard {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 95%;
+    overflow-y: scroll;
+  }
+
+  .filmCardContent {
+    width: 95%;
+    height: 100%;
+  }
+
+  .filmCardTitle {
+    font-size: 6vw;
+  }
+
+  .filmCardSubtitle {
+    font-size: 4vw;
     text-align: center;
   }
 
-  @media screen and (max-width: 768px) {
-    .filmCard {
-      flex-direction: row; 
-      flex-wrap: wrap;
-      height: 95%;
-      overflow-y: scroll;
-    }
-  
-    .filmCardContent {
-      width: 95%;
-      height: 100%;
-    }
-  
-    .filmCardTitle {
-      font-size: 6vw; 
-    }
-  
-    .filmCardSubtitle {
-      font-size: 4vw;
-      text-align: center; 
-    }
-  
-    #prin {
-      flex-wrap: wrap; 
-    }
-  
-    .filmMiddleContainer {
-      flex-direction: column;
-      align-items: center;
-    }
-
+  #prin {
+    flex-wrap: wrap;
   }
-  
+
+  .filmMiddleContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
